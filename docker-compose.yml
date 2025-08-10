@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: eventdb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: Admin@123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  backend:
+    build:
+      context: ./springapp
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+volumes:
+  postgres_data:
