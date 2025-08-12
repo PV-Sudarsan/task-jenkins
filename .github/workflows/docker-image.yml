@@ -20,6 +20,11 @@ jobs:
 
       - name: Build Docker image
         run: docker compose -f docker-compose.yml build
+      - name: Build Docker running
+        run: docker-compose up -d
+        run: docker-compose up -d
+      - name: Build Docker image
+        run: docker ps
     
       - name: Test backen endpoint
         run: curl http://localhost:8082
