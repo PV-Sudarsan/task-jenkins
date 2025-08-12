@@ -22,6 +22,7 @@ jobs:
         run: docker compose -f docker-compose.yml build
       - name: Build Docker running
         run: docker-compose up -d
+      - name: rerun docker
         run: docker-compose up -d
       - name: Build Docker image
         run: docker ps
