@@ -20,4 +20,8 @@ jobs:
 
       - name: Build Docker image
         run: docker compose -f docker-compose.yml build
-
+    
+      - name: Test backen endpoint
+        run: curl http://localhost:8082
+      - name: Testing frontend endpoint
+        run: curl http://localhost:5173  
